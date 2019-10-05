@@ -77,7 +77,22 @@ app.post('/cars', (req, res) => {
     }
     cars.push(car);
     saveCarsAsync(cars).then(() => {
-        res.send(car);
+      res.send(car);
+    });
+  });
+});
+
+app.put('/cars/:id', (req, res) => {
+  const id = req.params.id;
+  let editCar = null;
+  getCarsAsync().then(cars => {
+    cars.forEach(car => {
+      if (car.id == id) {
+        editCar = Object.assign(car, req.body);
+      }
+    });
+    saveCarsAsync(cars).then(() => {
+      res.send(editCar);
     });
   });
 });

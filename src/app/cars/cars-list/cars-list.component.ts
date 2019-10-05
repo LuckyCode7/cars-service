@@ -3,7 +3,7 @@ import { Car } from '../models/car';
 import { TotalCostComponent } from '../total-cost/total-cost.component';
 import { CarsService } from '../cars.service';
 import { Router } from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'cars-list',
@@ -11,24 +11,21 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./cars-list.component.less'],
   providers: [CarsService]
 })
-export class CarsListComponent implements OnInit, AfterViewInit, OnChanges {
+export class CarsListComponent implements OnInit, AfterViewInit {
   @ViewChild("totalCostRef", { static: false }) totalCostRef: TotalCostComponent;
-  
+
   totalCosts: number;
   grossCost: number;
   cars: Car[];
-  showSpinner : boolean = true;
-  carForm : FormGroup;
+  showSpinner: boolean = true;
+  carForm: FormGroup;
 
 
-  constructor(private carsService : CarsService, private router : Router, private formBuilder : FormBuilder) { }
+  constructor(private carsService: CarsService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.loadCars();
     this.carForm = this.buildCarForm();
-  }
-  ngOnChanges(){
-    // this.loadCars();
   }
 
   ngAfterViewInit() { // emitujemy zdarzenie dziecka jak komponenty się już załadują
@@ -43,7 +40,7 @@ export class CarsListComponent implements OnInit, AfterViewInit, OnChanges {
     });
   }
 
-  goToCarDetails(car : Car){
+  goToCarDetails(car: Car) {
     this.router.navigate(['/cars', car.id]);
   }
 
@@ -54,10 +51,7 @@ export class CarsListComponent implements OnInit, AfterViewInit, OnChanges {
     });
   }
 
-
-
   onShownGross(grossCost: number): void {
-    console.log('grosscost', grossCost);
     this.grossCost = grossCost;
   }
 
@@ -74,18 +68,18 @@ export class CarsListComponent implements OnInit, AfterViewInit, OnChanges {
 
   buildCarForm() {
     return this.formBuilder.group({
-    model: ['', Validators.required],
-    type: '',
-    plate: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(7)]],
-    deliveryDate: '',
-    deadline: '',
-    color: '',
-    power: '',
-    year:'',
-    clientFirstName: '',
-    clientSurname: '',
-    cost: '',
-    isFullyDamaged: ''
+      model: ['', Validators.required],
+      type: '',
+      plate: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(7)]],
+      deliveryDate: '',
+      deadline: '',
+      color: '',
+      power: '',
+      year: '',
+      clientFirstName: '',
+      clientSurname: '',
+      cost: '',
+      isFullyDamaged: ''
     })
   }
 
