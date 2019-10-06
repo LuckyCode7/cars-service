@@ -8,16 +8,19 @@ import { RouterModule } from '@angular/router';
 import { CarResolve } from './car-resolve.service';
 import { LoadingSpiComponent } from './loading-spi/loading-spi.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddCarComponent } from './add-car/add-car.component';
 
 
 
 @NgModule({
-  declarations: [CarsListComponent, TotalCostComponent, CarDetailsComponent, LoadingSpiComponent],
+  declarations: [CarsListComponent, TotalCostComponent, CarDetailsComponent, LoadingSpiComponent, AddCarComponent],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [CarResolve],
   exports: [CarsListComponent],

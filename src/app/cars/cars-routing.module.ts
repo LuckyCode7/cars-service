@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { CarResolve } from './car-resolve.service';
+import { AddCarComponent } from './add-car/add-car.component';
 
 
 const routes: Routes = [
@@ -9,6 +10,10 @@ const routes: Routes = [
     path: 'cars/:id',
     component: CarDetailsComponent,
     resolve: { car: CarResolve }
+  },
+  {
+    path: 'create',
+    component: AddCarComponent
   }
 ];
 

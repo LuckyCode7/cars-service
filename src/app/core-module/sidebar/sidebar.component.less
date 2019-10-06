@@ -1,25 +1,27 @@
 @import '../../../assets/styles/variables.less';
 
-.sidebar{
+.sidebar {
     width: 180px;
-    background: @blue;
-    position: fixed;
-    top: 0;
-    bottom: 0;
+    background: @background;
+    border-right: 1px solid white;
+    height: 100vh;
+    text-align: center;
 }
 
-.logo{
-    margin: 30px auto;
-    width: 120px;
-    display: block;
+.logo {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    height: 160px;
+    border-bottom: 1px solid white;
 }
 
-ul{
+ul {
     list-style: none;
     padding-left: 0;
 }
 
-li{
+li {
     text-transform: uppercase;
     font-weight: 700;
     cursor: pointer;
@@ -28,11 +30,11 @@ li{
     border-bottom: 1px solid @white;
 }
 
-li:hover{
+li:hover {
     background: #10447d;
     transition: linear 300ms;
 }
 
-li:active{
+li:active {
     background: @cyan;
 }

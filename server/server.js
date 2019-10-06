@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const httpPort = 8080;
+const httpPort = 8081;
 const httpServer = http.createServer(app);
 
 app.use((req, res, next) => {
@@ -50,8 +50,8 @@ app.get('/cars', (req, res) => {
 app.get('/cars/:id', (req, res) => {
   const id = req.params.id;
   getCarsAsync().then(cars => {
-    cars.forEach(car => {
-      if (car.id == id) {
+    cars.find(car => {
+      if (car.id == id){
         res.send(car);
       }
     });
@@ -84,15 +84,26 @@ app.post('/cars', (req, res) => {
 
 app.put('/cars/:id', (req, res) => {
   const id = req.params.id;
-  let editCar = null;
+  let editedCar = null;
   getCarsAsync().then(cars => {
-    cars.forEach(car => {
+    cars.forEach((car, index) => {
       if (car.id == id) {
-        editCar = Object.assign(car, req.body);
+        editedCar = Object.assign(car, req.body);
       }
     });
     saveCarsAsync(cars).then(() => {
-      res.send(editCar);
+      res.send(editedCar);
+    });
+  });
+});
+
+app.delete('/cars/:id', (req, res) => {
+  const id = req.params.id;
+  let newCarsList = null;
+  getCarsAsync().then(cars => {
+    newCarsList = cars.filter(car => car.id !== id);
+    saveCarsAsync(newCarsList).then(() => {
+      res.send({});
     });
   });
 });

@@ -1,8 +1,13 @@
 @import '../assets/styles/variables.less';
 
-#content-wrapper{
+#content-wrapper {
     background: @background;
-    margin: 0 0 0 180px;
     min-height: 100%;
     padding: 0;
+    width: calc(100% - 180px);
+}
+
+.flex-wrap {
+    display: flex;
+    flex-direction: row;
 }

@@ -11,8 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core-module/core.module';
 import { CarsRoutingModule } from './cars/cars-routing.module';
 
-
-
 @NgModule({
   declarations: [
     AppComponent

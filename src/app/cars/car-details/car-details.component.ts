@@ -37,7 +37,7 @@ export class CarDetailsComponent implements OnInit {
     clientSurname: this.car.clientSurname,
     cost: this.car.cost,
     isFullyDamaged: this.car.isFullyDamaged
-    })
+    });
   }
 
   updateCar(): void {
@@ -48,6 +48,6 @@ export class CarDetailsComponent implements OnInit {
   }
 
   loadCar() {
-    this.car = this.route.snapshot.data['car'];
+    this.car = this.route.snapshot.data['car']; 
   }
 }

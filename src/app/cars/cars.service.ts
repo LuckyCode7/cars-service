@@ -10,7 +10,7 @@ import { map } from "rxjs/operators";
 export class CarsService {
   private protocol: string = "http";
   private domain: string = "localhost";
-  private port: string = "8080";
+  private port: string = "8081";
   private url: string =
     this.protocol + "://" +
     this.domain + ":" +
@@ -37,4 +37,10 @@ export class CarsService {
     return this.http.put(`${this.url}/cars/${id}`, data)
       .pipe(map(res => res as Car));
   }
+
+  removeCar(id: number): Observable<Car> {
+    return this.http.delete(`${this.url}/cars/${id}`)
+      .pipe(map(res => res as Car));
+  }
+
 }
