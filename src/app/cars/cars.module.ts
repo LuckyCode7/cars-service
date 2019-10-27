@@ -10,11 +10,11 @@ import { LoadingSpiComponent } from './loading-spi/loading-spi.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddCarComponent } from './add-car/add-car.component';
-
-
+import { StatsComponent } from './stats/stats.component';
+import { CarsStateService } from './cars-state.service';
 
 @NgModule({
-  declarations: [CarsListComponent, TotalCostComponent, CarDetailsComponent, LoadingSpiComponent, AddCarComponent],
+  declarations: [CarsListComponent, TotalCostComponent, CarDetailsComponent, LoadingSpiComponent, AddCarComponent, StatsComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -22,7 +22,7 @@ import { AddCarComponent } from './add-car/add-car.component';
     ReactiveFormsModule,
     FontAwesomeModule
   ],
-  providers: [CarResolve],
+  providers: [CarResolve, CarsStateService],
   exports: [CarsListComponent],
 })
 export class CarsModule { }

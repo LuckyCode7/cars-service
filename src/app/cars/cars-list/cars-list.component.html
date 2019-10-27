@@ -1,14 +1,23 @@
 <cs-header>
-  <p levels>cars</p>
+  <p levels>cars service</p>
   <div content>
     <p>List of cars in service</p>
   </div>
 </cs-header>
 
+<!-- <cs-total-cost [totalCosts]="totalCosts" (shownGross)="onShownGross($event)"></cs-total-cost>
+
+<div class="row" *ngIf="grossCost">
+  <div class="col-sm-12">
+    <p class="text-right">TOTAL GROSS: {{grossCost}} PLN</p>
+  </div>
+</div> -->
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
       <cs-loading-spi *ngIf="showSpinner"></cs-loading-spi>
+      <input class="search-bar" type="text" name="Search" (keyup)="textChange($event)" placeholder="Search car by model">
       <table *ngIf="cars && cars.length > 0; else noCarsInfo" class="cs-table table ">
         <thead>
           <tr>
@@ -22,7 +31,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <tr *ngFor="let car of cars" class="row-car" [routerLink]="['/cars', car.id]"> -->
+
           <tr *ngFor="let car of cars" class="row-car" (click)="goToCarDetails(car)">
             <td [ngClass]="{'row-error': car?.isFullyDamaged}">{{ car?.model | uppercase}}</td>
             <td>{{ car?.plate }}</td>
@@ -54,13 +63,5 @@
   </div> -->
 
   <!-- <cs-total-cost #totalCostRef [totalCosts]="totalCosts" (shownGross)="onShownGross($event)"></cs-total-cost> -->
-
-  <cs-total-cost [totalCosts]="totalCosts" (shownGross)="onShownGross($event)"></cs-total-cost>
-
-  <div class="row" *ngIf="grossCost">
-    <div class="col-sm-12">
-      <p class="text-right">TOTAL GROSS: {{grossCost}} PLN</p>
-    </div>
-  </div>
 </div>
 

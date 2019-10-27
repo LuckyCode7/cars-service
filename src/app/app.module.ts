@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CoreModule } from './core-module/core.module';
 import { CarsRoutingModule } from './cars/cars-routing.module';
+import { CarsStateService } from './cars/cars-state.service';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 
 @NgModule({
   declarations: [
@@ -22,8 +25,10 @@ import { CarsRoutingModule } from './cars/cars-routing.module';
     CoreModule,
     HttpClientModule,
     AppRoutingModule,
-    CarsRoutingModule
+    CarsRoutingModule,
+    DragDropModule
   ],
   bootstrap: [AppComponent]
+  //providers: [CarsStateService],
 })
 export class AppModule { }
