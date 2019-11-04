@@ -4,7 +4,7 @@ import { TotalCostComponent } from '../total-cost/total-cost.component';
 import { CarsService } from '../cars.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { CarsStateService } from '../cars-state.service';
 
 @Component({
@@ -16,6 +16,7 @@ import { CarsStateService } from '../cars-state.service';
 export class CarsListComponent implements OnInit, AfterViewInit {
 
   @ViewChild("totalCostRef", { static: false }) totalCostRef: TotalCostComponent;
+  faPencilAlt = faPencilAlt;
   faTrashAlt = faTrashAlt;
   totalCosts: number;
   grossCost: number;

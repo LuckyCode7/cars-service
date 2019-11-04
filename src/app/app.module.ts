@@ -11,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core-module/core.module';
 import { CarsRoutingModule } from './cars/cars-routing.module';
 import { CarsStateService } from './cars/cars-state.service';
-import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -26,7 +25,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     HttpClientModule,
     AppRoutingModule,
     CarsRoutingModule,
-    DragDropModule
   ],
   bootstrap: [AppComponent]
   //providers: [CarsStateService],

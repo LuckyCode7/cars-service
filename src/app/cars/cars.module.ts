@@ -12,6 +12,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddCarComponent } from './add-car/add-car.component';
 import { StatsComponent } from './stats/stats.component';
 import { CarsStateService } from './cars-state.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatCheckboxModule, MatDatepickerModule, MatInputModule,MatNativeDateModule} from '@angular/material';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [CarsListComponent, TotalCostComponent, CarDetailsComponent, LoadingSpiComponent, AddCarComponent, StatsComponent],
@@ -20,7 +23,14 @@ import { CarsStateService } from './cars-state.service';
     SharedModule,
     RouterModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    DragDropModule,
+    MatDatepickerModule, 
+    MatInputModule,
+    MatNativeDateModule
+    
   ],
   providers: [CarResolve, CarsStateService],
   exports: [CarsListComponent],

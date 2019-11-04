@@ -33,7 +33,7 @@ export class CarDetailsComponent implements OnInit {
     color: this.car.color,
     power: this.car.power,
     year: this.car.year,
-    clientFirstName: this.car.clientFirstname,
+    clientFirstname: this.car.clientFirstname,
     clientSurname: this.car.clientSurname,
     cost: this.car.cost,
     isFullyDamaged: this.car.isFullyDamaged

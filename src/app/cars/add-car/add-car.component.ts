@@ -45,10 +45,10 @@ export class AddCarComponent implements OnInit {
       color: '',
       power: '',
       year: '',
-      clientFirstName: '',
+      clientFirstname: '',
       clientSurname: '',
       cost: '',
-      isFullyDamaged: ''
+      isFullyDamaged: false
     })
   }
 

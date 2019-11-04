@@ -23,7 +23,8 @@ ul {
 
 li {
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
+    font-size: 18px;
     cursor: pointer;
     color: @white;
     padding: 10px;
@@ -31,10 +32,15 @@ li {
 }
 
 li:hover {
-    background: #304153cc;
+    background: #4c9df365;
     transition: linear 300ms;
 }
 
 li:active {
-    background: @cyan;
+    background: #4c9df3bb;
 }
+
+li:focus {
+    outline: none;
+    background: #4c9df336;
+  }

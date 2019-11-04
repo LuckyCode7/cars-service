@@ -1,80 +1,98 @@
 <cs-header>
   <p levels>cars / {{car?.model}}</p>
   <div content>
-    <p>car details</p>
+    <p>Car details</p>
   </div>
 </cs-header>
 
-<p class="data-header">Edit {{car.model}}</p>
-
-<div class="data-container">
+<div class="update-container">
   <form [formGroup]="carForm">
     <div class="row form-group">
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <label>Model</label>
-        <input formControlName="model" type="text" class="form-control" placeholder="model">
-        <p *ngIf="!carForm.get('model').valid && carForm.get('model').dirty" class="error">This field is required</p>
+        <input formControlName="model" type="text" placeholder="model"
+          [ngClass]="{'error-input': !carForm.get('model').valid && carForm.get('model').dirty, 'input-bar': carForm.get('model').valid}">
+        <p *ngIf="!carForm.get('model').valid && carForm.get('model').dirty" class="error-message">This field is
+          required</p>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <label>Type</label>
-        <input formControlName="type" type="text" class="form-control" placeholder="type">
+        <input formControlName="type" type="text" class="input-bar" placeholder="type">
       </div>
-      <div class="col-sm-4">
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-6">
         <label>Plate</label>
-        <input formControlName="plate" type="text" class="form-control" placeholder="plate">
-        <p *ngIf="!carForm.get('plate').valid && carForm.get('plate').dirty" class="error">This field is required</p>
+        <input formControlName="plate" type="text" placeholder="plate"
+          [ngClass]="{'error-input': !carForm.get('plate').valid && carForm.get('plate').dirty, 'input-bar': carForm.get('plate').valid}">
+        <p *ngIf="!carForm.get('plate').valid && carForm.get('plate').dirty" class="error-message">This field is
+          required and has to consist of min 3 and max 7 characters</p>
       </div>
-    </div>
-
-    <div class="row form-group">
-      <div class="col-sm-4">
-        <label>Delivery date</label>
-        <input formControlName="deliveryDate" type="text" class="form-control" placeholder="delivery date">
-      </div>
-      <div class="col-sm-4">
-        <label>Deadline</label>
-        <input formControlName="deadline" type="text" class="form-control" placeholder="deadline">
-      </div>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <label>Cost</label>
-        <input formControlName="cost" type="text" class="form-control" placeholder="cost">
+        <input formControlName="cost" type="text" class="input-bar" placeholder="cost">
       </div>
     </div>
 
     <div class="row form-group">
-      <div class="col-sm-4">
+      <div class="col-sm-6">
+        <label style="display: block;">Deadline</label>
+        <mat-form-field color="accent">
+          <input matInput [matDatepicker]="picker1" formControlName="deadline" class="input-bar">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <label style="display: block;">Delivery date</label>
+        <mat-form-field color="accent">
+          <input matInput [matDatepicker]="picker2" formControlName="deliveryDate" class="input-bar">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+
+
+    <div class="row form-group">
+      <div class="col-sm-6">
         <label>Color</label>
-        <input formControlName="color" type="text" class="form-control" placeholder="color">
+        <input formControlName="color" type="text" class="input-bar" placeholder="color">
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <label>Power</label>
-        <input formControlName="power" type="text" class="form-control" placeholder="power">
-      </div>
-      <div class="col-sm-4">
-        <label>Year</label>
-        <input formControlName="year" type="text" class="form-control" placeholder="year">
+        <input formControlName="power" type="text" class="input-bar" placeholder="power">
       </div>
     </div>
 
     <div class="row form-group">
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <label>Client First Name</label>
-        <input formControlName="clientFirstName" type="text" class="form-control" placeholder="client first name">
+        <input formControlName="clientFirstname" type="text" class="input-bar" placeholder="client first name">
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <label>Client Last Name</label>
-        <input formControlName="clientSurname" type="text" class="form-control" placeholder="client last name">
+        <input formControlName="clientSurname" type="text" class="input-bar" placeholder="client last name">
       </div>
-      <div class="col-sm-4">
-        <label>Is car fully damaged
-          <input formControlName="isFullyDamaged" type="checkbox">
-        </label>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-6">
+        <label>Year</label>
+        <input formControlName="year" type="text" class="input-bar" placeholder="year">
       </div>
-      
+      <div class="col-sm-6">
+        <mat-checkbox formControlName="isFullyDamaged" labelPosition="before">Is car fully damaged</mat-checkbox>
+      </div>
+
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <button [disabled]="carForm.invalid" (click)="updateCar()" type="submit" class="btn btn-primary float-right">Update car</button>
+        <button [disabled]="carForm.invalid" (click)="updateCar()" type="submit" class="btn btn-primary float-right">
+          Update car
+        </button>
       </div>
     </div>
   </form>

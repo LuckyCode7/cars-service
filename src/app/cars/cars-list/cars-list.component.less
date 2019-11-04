@@ -1,7 +1,9 @@
 @import '../../../assets/styles/variables.less';
 
 .no-cars-info {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 18px;
     text-transform: uppercase;
     font-weight: 700;
@@ -18,38 +20,10 @@
     background-color: @red;
 }
 
+.row-update:hover {
+    background-color: @green;
+}
+
 .row-car:hover {
     background-color: #ffffffbe;
 }
-
-.search-bar {
-    background-color: transparent;
-    display: block;
-    width: 100%;
-    border: none;
-    margin-bottom: 20px;
-    border-bottom: 1px solid @white;
-    color: @white;
-    font-size: 21px;
-    font-weight: 100;
-}
-
-.search-bar:focus {
-    outline:0px;
-    -webkit-box-shadow: 0px 14px 31px -4px rgba(74,152,212,1);
-    -moz-box-shadow: 0px 14px 31px -4px rgba(74,152,212,1);
-    box-shadow: 0px 14px 31px -4px rgba(74,152,212,1);
-    border: none;
-}
-
-::-webkit-input-placeholder { /* Edge */
-    color: rgba(255, 255, 255, 0.445);
-  }
-  
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: rgba(255, 255, 255, 0.445);
-  }
-  
-  ::placeholder {
-    color: rgba(255, 255, 255, 0.445);
-  }

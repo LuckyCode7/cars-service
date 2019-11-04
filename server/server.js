@@ -61,14 +61,14 @@ app.get('/cars/:id', (req, res) => {
 app.post('/cars', (req, res) => {
   getCarsAsync().then(cars => {
     const car = {
-      "id": parseInt(cars[cars.length - 1].id) + 1,
+      "id": (parseInt(cars[cars.length - 1].id) + 1).toString(),
       "model": req.body.model,
       "type": req.body.type,
       "year": req.body.year,
       "color": req.body.color,
       "cost": req.body.cost,
       "isFullyDamaged": req.body.isFullyDamaged,
-      "clientFirstName": req.body.clientFirstName,
+      "clientFirstname": req.body.clientFirstname,
       "clientSurname": req.body.clientSurname,
       "power": req.body.power,
       "plate": req.body.plate,
