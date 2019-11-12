@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CarsService } from '../cars.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'cs-add-car',
@@ -12,9 +13,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AddCarComponent implements OnInit {
   carForm : FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private carsService: CarsService, private router: Router) { 
-    
-  }
+  constructor(private formBuilder: FormBuilder,
+              private carsService: CarsService,
+              private router: Router,
+              private toastr: ToastrService) {}
 
   ngOnInit() {
     this.carForm = this.buildCarForm();
@@ -32,6 +34,7 @@ export class AddCarComponent implements OnInit {
     this.carsService.addCar(this.carForm.value).subscribe(
       (car) => {
         this.router.navigate(['/cars']);
+        this.toastr.info(`Added ${car.model}`, 'Success');
     });
   }
 

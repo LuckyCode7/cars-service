@@ -15,6 +15,8 @@ import { CarsStateService } from './cars-state.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule, MatDatepickerModule, MatInputModule,MatNativeDateModule} from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ConfirmDialogComponent } from '../shared-module/dialogs/confirm-dialog/confirm-dialog.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [CarsListComponent, TotalCostComponent, CarDetailsComponent, LoadingSpiComponent, AddCarComponent, StatsComponent],
@@ -29,10 +31,11 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     DragDropModule,
     MatDatepickerModule, 
     MatInputModule,
-    MatNativeDateModule
-    
+    MatNativeDateModule,
+    ToastrModule.forRoot()
   ],
   providers: [CarResolve, CarsStateService],
+  entryComponents: [ConfirmDialogComponent],
   exports: [CarsListComponent],
 })
 export class CarsModule { }

@@ -3,6 +3,7 @@ import { CarsService } from '../cars.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Car } from '../models/car';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'cs-car-details',
@@ -16,7 +17,8 @@ export class CarDetailsComponent implements OnInit {
   constructor(private carsService: CarsService,
               private route: ActivatedRoute,
               private router: Router,
-              private formBuilder : FormBuilder) { }
+              private formBuilder : FormBuilder,
+              private toastr: ToastrService) { }
 
   ngOnInit() {
     this.loadCar();
@@ -44,6 +46,7 @@ export class CarDetailsComponent implements OnInit {
     this.carsService.updateCar(this.car.id, this.carForm.value).subscribe(
       (car) => {
       this.router.navigate(['/cars']);
+      this.toastr.info(`Updated ${car.model}`, 'Success');
     });
   }
 

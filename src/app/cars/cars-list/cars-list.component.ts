@@ -6,6 +6,9 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faTrashAlt, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { CarsStateService } from '../cars-state.service';
+import { MatDialog } from '@angular/material';
+import { ConfirmDialogModel, ConfirmDialogComponent } from 'src/app/shared-module/dialogs/confirm-dialog/confirm-dialog.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'cars-list',
@@ -29,7 +32,9 @@ export class CarsListComponent implements OnInit, AfterViewInit {
   constructor(private carsService: CarsService,
     private carsStateService: CarsStateService,
     private router: Router,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    public dialog: MatDialog,
+    private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -83,15 +88,29 @@ export class CarsListComponent implements OnInit, AfterViewInit {
 
   removeCar(car: Car, event): void {
     event.stopPropagation();
-    this.carsService.removeCar(car.id).subscribe(
-      () => { this.loadCars(); }
-    );
+
+    const message = `Are you sure you want to remove ${car.model} ?`;
+
+    const dialogData = new ConfirmDialogModel("Confirm Action", message);
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "400px",
+      data: dialogData
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult) {
+        this.carsService.removeCar(car.id).subscribe(
+          () => {
+             this.loadCars();
+             this.toastr.info(`Removed ${car.model}`, 'Success'); 
+            });
+      }
+    });
   }
 
   textChange(event: any) {
-    console.log(event.target.value);
     let searchCars;
-    console.log(this.carsCopy);
     searchCars = this.carsCopy.filter(car => {
       return (car.model.toLowerCase().includes(event.target.value.toLowerCase()) ||
         car.plate.toLowerCase().includes(event.target.value.toLowerCase()) ||
