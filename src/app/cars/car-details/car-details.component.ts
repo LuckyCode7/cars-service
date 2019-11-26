@@ -25,6 +25,18 @@ export class CarDetailsComponent implements OnInit {
     this.carForm = this.buildCarForm();
   }
 
+  loadCar() {
+    this.car = this.route.snapshot.data['car']; 
+  }
+
+  updateCar(): void {
+    this.carsService.updateCar(this.car.id, this.carForm.value).subscribe(
+      (car) => {
+      this.router.navigate(['/cars']);
+      this.toastr.info(`Updated ${car.model}`, 'Success');
+    });
+  }
+
   buildCarForm() {
     return this.formBuilder.group({
       model: [this.car.model, Validators.required],
@@ -40,17 +52,5 @@ export class CarDetailsComponent implements OnInit {
       cost: [this.car.cost, [Validators.required, Validators.pattern(/^(\d*\.)?\d+$/)]],
       isFullyDamaged: this.car.isFullyDamaged
     })
-  }
-
-  updateCar(): void {
-    this.carsService.updateCar(this.car.id, this.carForm.value).subscribe(
-      (car) => {
-      this.router.navigate(['/cars']);
-      this.toastr.info(`Updated ${car.model}`, 'Success');
-    });
-  }
-
-  loadCar() {
-    this.car = this.route.snapshot.data['car']; 
-  }
+  }  
 }

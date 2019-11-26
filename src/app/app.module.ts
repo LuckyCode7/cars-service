@@ -1,17 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { CarsModule } from './cars/cars.module';
 import { HttpClientModule } from '@angular/common/http';
-
-
 import { CoreModule } from './core-module/core.module';
 import { CarsRoutingModule } from './cars/cars-routing.module';
-import { CarsStateService } from './cars/cars-state.service';
-
 
 @NgModule({
   declarations: [
@@ -27,6 +21,5 @@ import { CarsStateService } from './cars/cars-state.service';
     CarsRoutingModule,
   ],
   bootstrap: [AppComponent]
-  //providers: [CarsStateService],
 })
 export class AppModule { }
