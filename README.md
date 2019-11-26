@@ -1,4 +1,4 @@
-# CarsService
+# Cars Service
 
 Application allows:
 
