@@ -1,94 +1,113 @@
 <cs-header>
-    <p levels>cars service</p>
-    <div content>
-      <p>Add a new car</p>
-    </div>
+  <p levels>cars service</p>
+  <div content>
+    <p>Add a new car</p>
+  </div>
 </cs-header>
 
-  <div class="add-container">
-      <form [formGroup]="carForm">
-        <div class="row form-group">
-          <div class="col-sm-6">
-            <label>Model</label>
-            <input formControlName="model" type="text" placeholder="model"
-              [ngClass]="{'error-input': !carForm.get('model').valid && carForm.get('model').dirty, 'input-bar': carForm.get('model').valid || !carForm.get('model').dirty}">
-            <p *ngIf="!carForm.get('model').valid && carForm.get('model').dirty" class="error-message">This field is
-              required</p>
-          </div>
-          <div class="col-sm-6">
-            <label>Type</label>
-            <input formControlName="type" type="text" class="input-bar" placeholder="type">
-          </div>
-        </div>
-    
-        <div class="row form-group">
-          <div class="col-sm-6">
-            <label>Plate</label>
-            <input formControlName="plate" type="text" placeholder="plate"
-              [ngClass]="{'error-input': !carForm.get('plate').valid && carForm.get('plate').dirty, 'input-bar': carForm.get('plate').valid || !carForm.get('plate').dirty}">
-            <p *ngIf="!carForm.get('plate').valid && carForm.get('plate').dirty" class="error-message">This field is
-              required and has to consist of min 3 and max 7 characters</p>
-          </div>
-          <div class="col-sm-6">
-            <label>Cost</label>
-            <input formControlName="cost" type="text" class="input-bar" placeholder="cost">
-          </div>
-        </div>
-    
-        <div class="row form-group">
-          <div class="col-sm-6">
-            <label style="display: block;">Deadline</label>
-            <mat-form-field color="accent">
-              <input matInput [matDatepicker]="picker1" formControlName="deadline" class="input-bar">
-              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-              <mat-datepicker #picker1></mat-datepicker>
-            </mat-form-field>
-          </div>
-          <div class="col-sm-6">
-            <label style="display: block;">Delivery date</label>
-            <mat-form-field color="accent">
-              <input matInput [matDatepicker]="picker2" formControlName="deliveryDate" class="input-bar">
-              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-              <mat-datepicker #picker2></mat-datepicker>
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div class="row form-group">
-          <div class="col-sm-6">
-            <label>Color</label>
-            <input formControlName="color" type="text" class="input-bar" placeholder="color">
-          </div>
-          <div class="col-sm-6">
-            <label>Power</label>
-            <input formControlName="power" type="text" class="input-bar" placeholder="power">
-          </div>
-        </div>
-    
-        <div class="row form-group">
-            <div class="col-sm-6">
-              <label>Client First Name</label>
-              <input formControlName="clientFirstname" type="text" class="input-bar" placeholder="client first name">
-            </div>
-            <div class="col-sm-6">
-              <label>Client Last Name</label>
-              <input formControlName="clientSurname" type="text" class="input-bar" placeholder="client last name">
-            </div>
-        </div>
-    
-        <div class="row form-group">
-          <div class="col-sm-6">
-            <label>Year</label>
-            <input formControlName="year" type="text" class="input-bar" placeholder="year">
-          </div>
-          <div class="col-sm-6">
-            <mat-checkbox formControlName="isFullyDamaged" labelPosition="before">Is car fully damaged</mat-checkbox>
-          </div>
-      
+<div class="add-container">
+  <form [formGroup]="carForm">
+    <div class="row form-group">
+      <div class="col-sm-6">
+        <label>Model</label>
+        <input formControlName="model" type="text" placeholder="model"
+          [ngClass]="{'error-input': !carForm.get('model').valid && carForm.get('model').dirty, 'input-bar': carForm.get('model').valid || !carForm.get('model').dirty}">
+        <p *ngIf="!carForm.get('model').valid && carForm.get('model').dirty" class="error-message">This field is
+          required</p>
+      </div>
+      <div class="col-sm-6">
+        <label>Type</label>
+        <input formControlName="type" type="text" class="input-bar" placeholder="type">
+      </div>
     </div>
+
+    <div class="row form-group">
+      <div class="col-sm-6">
+        <label>Plate</label>
+        <input formControlName="plate" type="text" placeholder="plate"
+          [ngClass]="{'error-input': !carForm.get('plate').valid && carForm.get('plate').dirty, 'input-bar': carForm.get('plate').valid || !carForm.get('plate').dirty}">
+        <p *ngIf="!carForm.get('plate').valid && carForm.get('plate').dirty" class="error-message">This field is
+          required and has to consist of min 3 and max 7 characters</p>
+      </div>
+      <div class="col-sm-6">
+        <label>Cost</label>
+        <input formControlName="cost" type="text" class="input-bar" placeholder="cost"
+          [ngClass]="{'error-input': !carForm.get('cost').valid && carForm.get('cost').dirty, 'input-bar': carForm.get('cost').valid || !carForm.get('cost').dirty}">
+        <p *ngIf="!carForm.get('cost').valid && carForm.get('cost').dirty" class="error-message">This field is
+          required and has to be a positive number</p>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-6">
+        <label style="display: block;">Deadline</label>
+        <mat-form-field color="accent">
+          <input matInput [matDatepicker]="picker1" formControlName="deadline" #pickerInput1 class="input-bar">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <p *ngIf="!carForm.get('deadline').valid && carForm.get('deadline').dirty" class="error-message">
+          Data input is empty or have invalid format</p>
+      </div>
+      <div class="col-sm-6">
+        <label style="display: block;">Delivery date</label>
+        <mat-form-field color="accent">
+          <input matInput [matDatepicker]="picker2" formControlName="deliveryDate" class="input-bar">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <p *ngIf="!carForm.get('deliveryDate').valid && carForm.get('deliveryDate').dirty" class="error-message">
+          Data input is empty or have invalid format</p>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-6">
+        <label>Color</label>
+        <input formControlName="color" type="text" class="input-bar" placeholder="color">
+      </div>
+      <div class="col-sm-6">
+        <label>Power</label>
+        <input formControlName="power" type="text" class="input-bar" placeholder="power">
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-6">
+        <label>Client First Name</label>
+        <input formControlName="clientFirstname" type="text" class="input-bar" placeholder="client first name"
+          [ngClass]="{'error-input': !carForm.get('clientFirstname').valid && carForm.get('clientFirstname').dirty, 'input-bar': carForm.get('clientFirstname').valid || !carForm.get('clientFirstname').dirty}">
+        <p *ngIf="!carForm.get('clientFirstname').valid && carForm.get('clientFirstname').dirty" class="error-message">
+          This field is
+          required and has consist of only letters</p>
+      </div>
+      <div class="col-sm-6">
+        <label>Client Last Name</label>
+        <input formControlName="clientSurname" type="text" class="input-bar" placeholder="client last name"
+          [ngClass]="{'error-input': !carForm.get('clientSurname').valid && carForm.get('clientSurname').dirty, 'input-bar': carForm.get('clientSurname').valid || !carForm.get('clientSurname').dirty}">
+        <p *ngIf="!carForm.get('clientSurname').valid && carForm.get('clientSurname').dirty" class="error-message">This
+          field is
+          required and has consist of only letters</p>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-6">
+        <label>Year</label>
+        <input formControlName="year" type="text" class="input-bar" placeholder="year"
+          [ngClass]="{'error-input': !carForm.get('year').valid && carForm.get('year').dirty, 'input-bar': carForm.get('year').valid || !carForm.get('year').dirty}">
+        <p *ngIf="!carForm.get('year').valid && carForm.get('year').dirty" class="error-message">This field is
+          required and has to be a year</p>
+      </div>
+      <div class="col-sm-6">
+        <mat-checkbox formControlName="isFullyDamaged" labelPosition="before">Is car fully damaged</mat-checkbox>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-sm-12">
-        <button [disabled]="carForm.invalid" (click)="addCar()" type="submit" class="btn btn-primary float-right">Add car</button>
+        <button [disabled]="carForm.invalid" (click)="addCar()" type="submit" class="btn btn-primary float-right">
+          Add car</button>
       </div>
     </div>
   </form>

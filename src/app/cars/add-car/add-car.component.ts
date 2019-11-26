@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CarsService } from '../cars.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -22,14 +22,6 @@ export class AddCarComponent implements OnInit {
     this.carForm = this.buildCarForm();
   }
 
-  // loadCars(): void {
-  //   this.carsService.getCars().subscribe(cars => {
-  //     this.cars = cars;
-  //     this.countTotalCosts();
-  //     this.showSpinner = false;
-  //   });
-  // }
-
   addCar(): void {
     this.carsService.addCar(this.carForm.value).subscribe(
       (car) => {
@@ -43,16 +35,15 @@ export class AddCarComponent implements OnInit {
       model: ['', Validators.required],
       type: '',
       plate: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(7)]],
-      deliveryDate: '',
-      deadline: '',
+      deliveryDate: ['', Validators.required],
+      deadline: ['', Validators.required],
       color: '',
       power: '',
-      year: '',
-      clientFirstname: '',
-      clientSurname: '',
-      cost: '',
+      year: ['', [Validators.required,  Validators.pattern(/\d{4}/)]],
+      clientFirstname: ['', [Validators.required,  Validators.pattern(/^[a-zA-Z]+$/)]],
+      clientSurname: ['', [Validators.required,  Validators.pattern(/^[a-zA-Z]+$/)]],
+      cost: ['', [Validators.required, Validators.pattern(/^(\d*\.)?\d+$/)]],
       isFullyDamaged: false
     })
   }
-
 }

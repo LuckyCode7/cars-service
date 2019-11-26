@@ -27,19 +27,19 @@ export class CarDetailsComponent implements OnInit {
 
   buildCarForm() {
     return this.formBuilder.group({
-    model: [this.car.model, Validators.required],
-    type: this.car.type,
-    plate: [this.car.plate, [Validators.required, Validators.minLength(3), Validators.maxLength(7)]],
-    deliveryDate: this.car.deliveryDate,
-    deadline: this.car.deadline,
-    color: this.car.color,
-    power: this.car.power,
-    year: this.car.year,
-    clientFirstname: this.car.clientFirstname,
-    clientSurname: this.car.clientSurname,
-    cost: this.car.cost,
-    isFullyDamaged: this.car.isFullyDamaged
-    });
+      model: [this.car.model, Validators.required],
+      type: this.car.type,
+      plate: [this.car.plate, [Validators.required, Validators.minLength(3), Validators.maxLength(7)]],
+      deliveryDate: [this.car.deliveryDate, Validators.required],
+      deadline: [this.car.deadline, Validators.required],
+      color: this.car.color,
+      power: this.car.power,
+      year: [this.car.year, [Validators.required,  Validators.pattern(/\d{4}/)]],
+      clientFirstname: [this.car.clientFirstname, [Validators.required,  Validators.pattern(/^[a-zA-Z]+$/)]],
+      clientSurname: [this.car.clientSurname, [Validators.required,  Validators.pattern(/^[a-zA-Z]+$/)]],
+      cost: [this.car.cost, [Validators.required, Validators.pattern(/^(\d*\.)?\d+$/)]],
+      isFullyDamaged: this.car.isFullyDamaged
+    })
   }
 
   updateCar(): void {
