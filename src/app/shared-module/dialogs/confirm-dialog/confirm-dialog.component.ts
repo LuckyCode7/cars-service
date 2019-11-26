@@ -7,7 +7,6 @@ import { Component, OnInit, Inject } from '@angular/core';
   styleUrls: ['./confirm-dialog.component.less']
 })
 export class ConfirmDialogComponent implements OnInit {
-
   title: string;
   message: string;
 

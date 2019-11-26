@@ -19,7 +19,7 @@ import { ConfirmDialogComponent } from '../shared-module/dialogs/confirm-dialog/
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
-  declarations: [CarsListComponent, TotalCostComponent, CarDetailsComponent, LoadingSpiComponent, AddCarComponent, StatsComponent],
+  declarations: [CarsListComponent, CarDetailsComponent, LoadingSpiComponent, AddCarComponent, StatsComponent],
   imports: [
     CommonModule,
     SharedModule,

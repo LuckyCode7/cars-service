@@ -6,7 +6,7 @@
 </cs-header>
 
 <div class="stats" >
-    <div *ngFor="let stat of statistic" class="item" cdkDragg>
+    <div *ngFor="let stat of statistic" class="item">
         <fa-icon [icon]="faThumbtack"></fa-icon>
         <p>{{stat.name}}</p>
         <p class="value">{{stat.value}}</p>

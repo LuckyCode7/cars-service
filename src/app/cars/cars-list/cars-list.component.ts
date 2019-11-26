@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit, OnChanges } from '@angular/core';
 import { Car } from '../models/car';
-import { TotalCostComponent } from '../total-cost/total-cost.component';
 import { CarsService } from '../cars.service';
 import { Router } from '@angular/router';
 import { faTrashAlt, faPencilAlt } from '@fortawesome/free-solid-svg-icons';

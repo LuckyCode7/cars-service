@@ -42,5 +42,4 @@ export class CarsService {
     return this.http.delete(`${this.url}/cars/${id}`)
       .pipe(map(res => res as Car));
   }
-
 }
