@@ -1,5 +1,7 @@
 # Cars Service
 
+LIVE: https://ravnowak.github.io/cars-service/
+
 Application allows:
 
 - browsing the car database
@@ -14,13 +16,7 @@ Frontend:
 - Typescript
 
 Backend:
-- Node js
-
-## Running application
-
-Run `npm run server` for a REST API.
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
+- Node js 
 
 
 
