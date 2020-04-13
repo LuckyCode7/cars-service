@@ -1,0 +1,132 @@
+@import 'variables';
+@import '../../../node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import '../../../node_modules/ngx-toastr/toastr.css';
+
+body {
+    background: @white;
+}
+
+.data-header {
+    color: @white;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 15px;
+}
+
+.data-container {
+    background: @white;
+    padding: 15px;
+    margin: 15px;
+}
+
+.error-message {
+    color: @white;
+    font-size: 14px;
+    padding-left: 4px;
+}
+
+.error-input:focus {
+     outline:0px;
+    -webkit-box-shadow: 0px 14px 31px -4px rgb(209, 43, 43);
+    -moz-box-shadow: 0px 14px 31px -4px rgb(209, 43, 43);
+    box-shadow: 0px 14px 31px -4px rgb(209, 43, 43);
+    border: none;
+}
+
+.error-input {
+    background-color: transparent;
+    display: block;
+    width: 100%;
+    border: none;
+    margin-bottom: 20px;
+    border-bottom: 1px solid @white;
+    color: @white;
+    font-size: 21px;
+    font-weight: 100;
+}
+
+.input-bar {
+    background-color: transparent;
+    display: block;
+    width: 100%;
+    border: none;
+    margin-bottom: 20px;
+    border-bottom: 1px solid @white;
+    color: @white !important;
+    font-size: 21px !important;
+    font-weight: 100 !important;
+}
+
+.input-bar:focus {
+    outline:0px;
+    -webkit-box-shadow: 0px 14px 31px -4px rgba(74,152,212,1);
+    -moz-box-shadow: 0px 14px 31px -4px rgba(74,152,212,1);
+    box-shadow: 0px 14px 31px -4px rgba(74,152,212,1);
+    border: none;
+}
+
+::-webkit-input-placeholder { /* Edge */
+    color: rgba(255, 255, 255, 0.445);
+}
+  
+::-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgba(255, 255, 255, 0.445);
+}
+  
+::placeholder {
+    color: rgba(255, 255, 255, 0.445);
+}
+
+// Scrollbar
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(128, 128, 128, 0.678);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.63); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.534); 
+}
+
+/* Handle on active */
+::-webkit-scrollbar-thumb:active {
+    background: rgba(0, 0, 0, 0.644); 
+}
+
+// Datapicker
+
+ .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: @white !important;
+}
+   
+.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: @white !important;
+} 
+   
+.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: #4c9df3bb !important;;
+}
+   
+.mat-form-field-label {
+    /*change color of label*/
+    color: @white !important;
+}
+      
+.mat-datepicker-toggle {
+    color: @white !important;
+}
+
+.mat-form-field-infix {
+    padding: 0 !important;
+}
